@@ -1,0 +1,21 @@
+@import 'variable.scss';
+@import 'grid.scss';
+@import 'swiper/swiper.css';
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    color: $test;
+    display: flex;
+}
+img{
+    width: 100%;
+}
+
+h2{
+    color: red;
+}
+
