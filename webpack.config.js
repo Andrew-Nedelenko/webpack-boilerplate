@@ -3,6 +3,7 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   mode: "production",
@@ -30,13 +31,13 @@ module.exports = {
         use: [{ loader: "html-loader", options: { minimize: false } }]
       },
       {
-        test: /\.(png|jpe?g)/i,
+        test: /\.(png|jp(e*)g|svg)$/,
         use: [
           {
             loader: "url-loader",
             options: {
               name: "./img/[name].[ext]",
-              limit: 10000
+              limit: 100
             }
           },
           {
@@ -52,7 +53,7 @@ module.exports = {
         },
       },
       {
-        test: /\.scss$/,
+        test: /\.(sass|scss)$/,
         use: [
           MiniCssExtractPlugin.loader,
           {
@@ -92,6 +93,7 @@ module.exports = {
     new MiniCssExtractPlugin({
         filename: "css/[name].css",
         chunkFilename: "[id].css"
-      })
+      }),
+      new CopyWebpackPlugin([{ from: 'src/img/favicons.png', to: 'img/'}])
   ]
 };
