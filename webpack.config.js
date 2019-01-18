@@ -1,59 +1,59 @@
-"use strict";
-const HtmlWebPackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const HtmlWebPackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: './src/index.js',
   output: {
-    filename: "js/main.js"
+    filename: 'js/main.js',
   },
-  mode: "production",
+  mode: 'production',
   optimization: {
     minimizer: [
       new OptimizeCSSAssetsPlugin({}),
       new UglifyJsPlugin({
         uglifyOptions: {
-            ecma: 5,
-            warnings: false,
-            compress: true,
-            mangle: true,
-            keep_fnames: true,
-            output: {
-                beautify: false,
-                comments: false
-            }
-        }
-    })]
+          ecma: 5,
+          warnings: false,
+          compress: true,
+          mangle: true,
+          keep_fnames: true,
+          output: {
+            beautify: false,
+            comments: false,
+          },
+        },
+      })],
   },
   module: {
     rules: [
       {
         test: /\.html$/,
-        use: [{ loader: "html-loader", options: { minimize: false } }]
+        use: [{ loader: 'html-loader', options: { minimize: false } }],
       },
       {
         test: /\.(png|jp(e*)g|svg)$/,
         use: [
           {
-            loader: "url-loader",
+            loader: 'url-loader',
             options: {
-              name: "./img/[name].[ext]",
-              limit: 100
-            }
+              name: './img/[name].[ext]',
+              limit: 100,
+            },
           },
           {
-            loader: "img-loader"
-          }
-        ]
+            loader: 'img-loader',
+          },
+        ],
       },
       {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
         },
       },
       {
@@ -63,41 +63,41 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              sourceMap: true
-          }
-        },
-        {
+              sourceMap: true,
+            },
+          },
+          {
             loader: 'postcss-loader',
             options: {
-                plugins: () => [
-                    require('autoprefixer')
-                ],
-                sourceMap: true
-            }
-        },
-        {
+              plugins: () => [
+                autoprefixer,
+              ],
+              sourceMap: true,
+            },
+          },
+          {
             loader: 'sass-loader',
             options: {
-                sourceMap: true
-            }
-        }
-        ]
-      }
-    ]
+              sourceMap: true,
+            },
+          },
+        ],
+      },
+    ],
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: "src/index.html",
-      filename: "./index.html"
+      template: 'src/index.html',
+      filename: './index.html',
     }),
     new HtmlWebPackPlugin({
-        template: "src/index2.html",
-        filename: "./index2.html"
-      }),
+      template: 'src/index2.html',
+      filename: './index2.html',
+    }),
     new MiniCssExtractPlugin({
-        filename: "css/[name].css",
-        chunkFilename: "[id].css"
-      }),
-      new CopyWebpackPlugin([{ from: 'src/img/favicons.png', to: 'img/'}])
-  ]
+      filename: 'css/[name].css',
+      chunkFilename: '[id].css',
+    }),
+    new CopyWebpackPlugin([{ from: 'src/img/favicons.png', to: 'img/' }]),
+  ],
 };
