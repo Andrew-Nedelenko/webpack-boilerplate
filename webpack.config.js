@@ -6,6 +6,10 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
+  entry: "./src/index.js",
+  output: {
+    filename: "js/main.js"
+  },
   mode: "production",
   optimization: {
     minimizer: [
