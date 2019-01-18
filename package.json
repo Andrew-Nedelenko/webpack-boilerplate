@@ -29,7 +29,7 @@
     "url-loader": "^1.1.2",
     "webpack": "^4.26.0",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.10"
+    "webpack-dev-server": "^3.1.14"
   },
   "browserslist": [
     "last 4 versions"
@@ -44,6 +44,7 @@
   ],
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
+    "bootstrap-4-grid": "^2.4.1",
     "swiper": "^4.4.2"
   }
 }
