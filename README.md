@@ -4,7 +4,7 @@
 
 ### Installation
 
-Requirements: [Node.js](https://nodejs.org/) v10+ to run.
+Requirements: [Node.js](https://nodejs.org/) v8+ to run.
 
 Install the dependencies for development env
 
