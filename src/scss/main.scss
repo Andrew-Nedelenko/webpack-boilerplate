@@ -1,6 +1,13 @@
 @import 'variable.scss';
 @import 'swiper/swiper.css';
 
+@font-face{
+    font-family: CoreSansExtraLight;
+    src: url(../fonts/CoreSansG-ExtraLight.ttf)
+}
+
+$testfont: CoreSansExtraLight;
+
 *{
     margin: 0;
     padding: 0;
@@ -9,6 +16,7 @@
 h1{
     color: $test;
     display: flex;
+    font-family: $testfont;
 }
 img{
     width: 200px;
