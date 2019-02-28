@@ -1,5 +1,5 @@
 @import 'variable.scss';
-@import 'swiper/swiper.css';
+@import '../../node_modules/swiper/dist/css/swiper.min.css';
 
 @font-face{
     font-family: CoreSansExtraLight;
@@ -19,11 +19,7 @@ h1{
     font-family: $testfont;
 }
 img{
-    width: 200px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    opacity: .3;
+    width: 100%;
 }
 
 h2{
