@@ -8,7 +8,7 @@ const autoprefixer = require('autoprefixer');
 module.exports = {
   entry: './src/index.js',
   output: {
-    filename: 'js/main.js',
+    filename: 'js/bundle.js',
   },
   mode: 'production',
   optimization: {

@@ -1,4 +1,5 @@
 @import 'variable.scss';
+@import 'normalize.scss';
 @import '../../node_modules/swiper/dist/css/swiper.min.css';
 
 @font-face{
@@ -7,11 +8,6 @@
 }
 
 $testfont: CoreSansExtraLight;
-
-*{
-    margin: 0;
-    padding: 0;
-}
 
 h1{
     color: $test;
