@@ -6,6 +6,11 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
 module.exports = {
+  devServer: {
+    host: 'localhost',
+    port: 4800,
+    historyApiFallback: true,
+  },
   entry: './src/index.js',
   output: {
     filename: 'js/bundle.js',
