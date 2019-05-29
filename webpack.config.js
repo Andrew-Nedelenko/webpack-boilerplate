@@ -33,7 +33,7 @@ module.exports = {
           ie8: false,
           keep_classnames: undefined,
           keep_fnames: false,
-          safari10: false,
+          safari10: true,
         },
       })],
   },
